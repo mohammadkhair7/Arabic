@@ -83,6 +83,13 @@ jvm_path = os.path.join(java_dir, "libjvm.so")
 
 def compile_java():
     try:
+
+        # Get the current working directory
+        current_working_directory = os.getcwd()
+
+        # Print the current working directory
+        st.write(f"Current working directory for compiling: {current_working_directory}")
+
         # Define the classpath
         classpath = "/mount/source/Arabic/json/json-20210307.jar:/mount/source/Arabic/net/oujda_nlp_team"
 
@@ -255,6 +262,13 @@ def main():
 
                 # Access Java classes
                 st.write("Debug: Accessing Java class")
+
+
+                # Get the current working directory
+                current_working_directory = os.getcwd()
+
+                # Print the current working directory
+                st.write(f"Current working directory: {current_working_directory}")
 
                 # Define the classpath
                 classpath = "/mount/source/Arabic/json/json-20210307.jar:/mount/source/Arabic/net/oujda_nlp_team:/mount/source/arabic/"
