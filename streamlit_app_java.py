@@ -72,7 +72,7 @@ print("PATH is set to:", os.environ['PATH'])
 java_dir = JAVA_HOME + "/lib/server"
 
 # # Construct the path to libjvm.so
-jvm_path = os.path.join(JAVA_HOME, "libjvm.so")
+jvm_path = os.path.join(java_dir, "libjvm.so")
 
 
 # # Load API URL from Streamlit secrets
