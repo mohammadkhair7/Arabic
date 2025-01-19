@@ -1,0 +1,15 @@
+sqlalchemy
+psycopg-binary
+psycopg2-binary
+streamlit
+langchain-postgres
+langchain-google-vertexai
+langchain-community
+langchain-core
+logging
+google-auth
+pandas
+pyarabic
+fastapi
+pydantic
+jpype1
