@@ -62,8 +62,8 @@ JAVA_HOME = '/usr/lib/jvm/java-11-openjdk-amd64'
 os.environ['PATH'] = os.environ['PATH'] + os.pathsep + os.path.join(os.environ['JAVA_HOME'], 'bin')
 
 # Verify the setting
-print("JAVA_HOME is set to:", os.environ['JAVA_HOME'])
-print("PATH is set to:", os.environ['PATH'])
+st.write("JAVA_HOME is set to:", os.environ['JAVA_HOME'])
+st.write("PATH is set to:", os.environ['PATH'])
 
 # Get the current directory
 # current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -97,11 +97,11 @@ def compile_java():
             stderr=subprocess.PIPE
         )
 
-        print("Java compilation successful.")
-        print(result.stdout.decode())
+        st.write("Java compilation successful.")
+        st.write(result.stdout.decode())
     except subprocess.CalledProcessError as e:
-        print("Java compilation failed.")
-        print(e.stderr.decode())
+        st.write("Java compilation failed.")
+        st.write(e.stderr.decode())
 
 # Call the function
 compile_java()
@@ -254,9 +254,26 @@ def main():
                         return
 
                 # Access Java classes
-                # st.write("Debug: Accessing Java class")
+                st.write("Debug: Accessing Java class")
+
+                # Define the classpath
+                classpath = "/mount/source/arabic/json/json-20210307.jar;/mount/source/arabic/net/oujda_nlp_team;/mount/source/arabic/"
+
+                # Define the Java class and argument
+                java_class = "net.oujda_nlp_team.AlKhalil2AnalyzerWrapper"
+                argument = "ِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيم"
+                # Run the Java command
+                java_result = subprocess.run(
+                    ['java', '-cp', classpath, java_class, argument],
+                    check=True,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    text=True
+                )
+                st.write(java_result)
+
+
                 try:
-                    st.write("instantiating class AlKhalil2AnalyzerWrapper")
                     java_class = jpype.JClass("AlKhalil2AnalyzerWrapper")
                     java_object = java_class()
                     # st.write("Debug: Java class accessed successfully")
