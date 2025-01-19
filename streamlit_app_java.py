@@ -260,7 +260,7 @@ def main():
                 classpath = "/mount/source/arabic/json/json-20210307.jar:/mount/source/arabic/net/oujda_nlp_team:/mount/source/arabic/"
 
                 # Define the Java class and argument
-                java_class = "net.oujda_nlp_team.AlKhalil2AnalyzerWrapper"
+                java_class = "AlKhalil2AnalyzerWrapper"
                 argument = "ِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيم"
                 # Run the Java command
                 java_result = subprocess.run(
