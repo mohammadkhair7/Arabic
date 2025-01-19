@@ -54,7 +54,12 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-JAVA_HOME=st.secrets["env"]["JAVA_HOME"]
+# Load API URL from Streamlit secrets
+def get_env_java():
+    return st.secrets["env"]["JAVA_HOME"]
+
+# Use the function to get the API URL
+JAVA_HOME = get_env_java()
 
 def analyze_sentence(sentence, java_object):
     try:
