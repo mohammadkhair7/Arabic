@@ -1,0 +1,2 @@
+@echo off
+java -Dfile.encoding=UTF-8 -Ddb.path="e:\Quran Computing Institute\Al-Khalil\Tools\AlkhalilMorphSys2\src\net\oujda_nlp_team\resources" -Dalkhalil.home="e:\Quran Computing Institute\Al-Khalil\Tools\AlkhalilMorphSys2" -cp "e:\Quran Computing Institute\Al-Khalil\Tools\AlkhalilMorphSys2\src_java;e:\Quran Computing Institute\Al-Khalil\Tools\AlkhalilMorphSys2\dist\AlKhalil.jar;e:\Quran Computing Institute\Al-Khalil\Tools\AlkhalilMorphSys2\lib\*" net.oujda_nlp_team.main.ADATMain input.txt output.txt utf-8 utf-8
