@@ -231,7 +231,7 @@ def main():
                 # Access Java classes
                 # st.write("Debug: Accessing Java class")
                 try:
-                    java_class = jpype.JClass("/mount/source/arabic/AlKhalil2AnalyzerWrapper.class")
+                    java_class = jpype.JClass("AlKhalil2AnalyzerWrapper")
                     java_object = java_class()
                     # st.write("Debug: Java class accessed successfully")
                 except Exception as e:
