@@ -261,16 +261,16 @@ def main():
 
                 # Define the Java class and argument
                 java_class = "AlKhalil2AnalyzerWrapper"
-                argument = "ِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيم"
-                # Run the Java command
-                java_result = subprocess.run(
-                    ['java', '-cp', classpath, java_class, argument],
-                    check=True,
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE,
-                    text=True
-                )
-                st.write(java_result)
+                # argument = "ِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيم"
+                # # Run the Java command
+                # java_result = subprocess.run(
+                #     ['java', '-cp', classpath, java_class, argument],
+                #     check=True,
+                #     stdout=subprocess.PIPE,
+                #     stderr=subprocess.PIPE,
+                #     text=True
+                # )
+                # st.write(java_result)
 
 
                 try:
