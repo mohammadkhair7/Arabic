@@ -58,6 +58,7 @@ import os
 
 # Set the JAVA_HOME environment variable
 os.environ['JAVA_HOME'] = '/usr/lib/jvm/java-11-openjdk-amd64'
+JAVA_HOME = '/usr/lib/jvm/java-11-openjdk-amd64'
 
 # Optionally, add JAVA_HOME/bin to the PATH
 os.environ['PATH'] = os.environ['PATH'] + os.pathsep + os.path.join(os.environ['JAVA_HOME'], 'bin')
@@ -68,10 +69,10 @@ print("PATH is set to:", os.environ['PATH'])
 
 # Get the current directory
 # current_dir = os.path.dirname(os.path.abspath(__file__))
-# java_dir = current_dir + "/java/server"
+java_dir = JAVA_HOME + "/lib/server"
 
 # # Construct the path to libjvm.so
-# jvm_path = os.path.join(java_dir, "libjvm.so")
+jvm_path = os.path.join(JAVA_HOME, "libjvm.so")
 
 
 # # Load API URL from Streamlit secrets
