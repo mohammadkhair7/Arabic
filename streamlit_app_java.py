@@ -6,7 +6,7 @@ from pyarabic.araby import tokenize
 import jpype
 import os
 import json
-
+import subprocess
 
 # Set page configuration as the first Streamlit command
 st.set_page_config(
@@ -54,8 +54,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-import os
-
 # Set the JAVA_HOME environment variable
 os.environ['JAVA_HOME'] = '/usr/lib/jvm/java-11-openjdk-amd64'
 JAVA_HOME = '/usr/lib/jvm/java-11-openjdk-amd64'
@@ -82,6 +80,32 @@ jvm_path = os.path.join(java_dir, "libjvm.so")
 # Use the function to get the API URL
 ## home for all libraries including libjava.so and libverify.so
 # JAVA_HOME = get_env_java()
+
+def compile_java():
+    try:
+        # Define the classpath
+        classpath = "/mount/source/arabic/json/json-20210307.jar:/mount/source/arabic/"
+
+        # Define the Java file to compile
+        java_file = "/mount/source/arabic/net/oujda_nlp_team/AlKhalil2AnalyzerWrapper.java"
+
+        # Run the javac command
+        result = subprocess.run(
+            ['javac', '-cp', classpath, java_file],
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE
+        )
+
+        print("Java compilation successful.")
+        print(result.stdout.decode())
+    except subprocess.CalledProcessError as e:
+        print("Java compilation failed.")
+        print(e.stderr.decode())
+
+# Call the function
+compile_java()
+
 
 def analyze_sentence(sentence, java_object):
     try:
