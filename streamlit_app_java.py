@@ -84,10 +84,10 @@ jvm_path = os.path.join(java_dir, "libjvm.so")
 def compile_java():
     try:
         # Define the classpath
-        classpath = "/mount/source/arabic/json/json-20210307.jar:/mount/source/arabic/net/oujda_nlp_team"
+        classpath = "/mount/source/Arabic/json/json-20210307.jar:/mount/source/Arabic/net/oujda_nlp_team"
 
         # Define the Java file to compile
-        java_file = "/mount/source/arabic/net/oujda_nlp_team/AlKhalil2AnalyzerWrapper.java"
+        java_file = "/mount/source/Arabic/net/oujda_nlp_team/AlKhalil2AnalyzerWrapper.java"
 
         # Run the javac command
         result = subprocess.run(
@@ -242,9 +242,9 @@ def main():
                         jpype.startJVM(
                             jvm_path,
                             classpath=[
-                                '/mount/source/arabic/',
-                                '/mount/source/arabic/net/oujda_nlp_team',
-                                '/mount/source/arabic/json/json-20210307.jar'
+                                '/mount/source/Arabic/',
+                                '/mount/source/Arabic/net/oujda_nlp_team',
+                                '/mount/source/Arabic/json/json-20210307.jar'
                             ]
                         )
                         # st.write("Debug: JVM started successfully")
@@ -257,7 +257,7 @@ def main():
                 st.write("Debug: Accessing Java class")
 
                 # Define the classpath
-                classpath = "/mount/source/arabic/json/json-20210307.jar:/mount/source/arabic/net/oujda_nlp_team:/mount/source/arabic/"
+                classpath = "/mount/source/Arabic/json/json-20210307.jar:/mount/source/Arabic/net/oujda_nlp_team:/mount/source/arabic/"
 
                 # Define the Java class and argument
                 java_class_name = "net.oujda_nlp_team.AlKhalil2AnalyzerWrapper"
