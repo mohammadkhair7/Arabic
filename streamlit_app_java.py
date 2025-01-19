@@ -218,8 +218,8 @@ def main():
                         jpype.startJVM(
                             jvm_path,
                             classpath=[
-                                'E:\\Quran Computing Institute\\Al-Khalil\\Tools\\AlkhalilMorphSys2\\src_java',
-                                'E:\\Quran Computing Institute\\Al-Khalil\\Tools\\AlkhalilMorphSys2\\src_java\\net\\oujda_nlp_team\\json\\json-20210307.jar'
+                                '.\',
+                                '.\json\\json-20210307.jar'
                             ]
                         )
                         # st.write("Debug: JVM started successfully")
@@ -231,7 +231,7 @@ def main():
                 # Access Java classes
                 # st.write("Debug: Accessing Java class")
                 try:
-                    java_class = jpype.JClass("net.oujda_nlp_team.AlKhalil2AnalyzerWrapper")
+                    java_class = jpype.JClass("AlKhalil2AnalyzerWrapper")
                     java_object = java_class()
                     # st.write("Debug: Java class accessed successfully")
                 except Exception as e:
