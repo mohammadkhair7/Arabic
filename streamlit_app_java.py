@@ -257,7 +257,7 @@ def main():
                 # st.write("Debug: Accessing Java class")
                 try:
                     print("instantiating class AlKhalil2AnalyzerWrapper")
-                    java_class = jpype.JClass("net.oujda_nlp_team.AlKhalil2AnalyzerWrapper")
+                    java_class = jpype.JClass("AlKhalil2AnalyzerWrapper")
                     java_object = java_class()
                     # st.write("Debug: Java class accessed successfully")
                 except Exception as e:
