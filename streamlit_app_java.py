@@ -159,7 +159,7 @@ def find_file(start_dir, target_file):
     return None
 
 # Define the starting directory and the target file
-start_directory = "/mount/source/arabic/net/oujda_nlp_team"
+start_directory = "/mount/source/arabic"
 target_filename = "AlKhalil2AnalyzerWrapper.java"
 
 # Find the file
