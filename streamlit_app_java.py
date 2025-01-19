@@ -218,8 +218,8 @@ def main():
                         jpype.startJVM(
                             jvm_path,
                             classpath=[
-                                '',
-                                'json/json-20210307.jar'
+                                '/mount/source/arabic/',
+                                '/mount/source/arabic/json/json-20210307.jar'
                             ]
                         )
                         # st.write("Debug: JVM started successfully")
