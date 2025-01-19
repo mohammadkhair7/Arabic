@@ -84,7 +84,7 @@ jvm_path = os.path.join(java_dir, "libjvm.so")
 def compile_java():
     try:
         # Define the classpath
-        classpath = "/mount/source/arabic/json/json-20210307.jar:/mount/source/arabic/"
+        classpath = "/mount/source/arabic/json/json-20210307.jar:/mount/source/arabic/net/oujda_nlp_team"
 
         # Define the Java file to compile
         java_file = "/mount/source/arabic/net/oujda_nlp_team/AlKhalil2AnalyzerWrapper.java"
