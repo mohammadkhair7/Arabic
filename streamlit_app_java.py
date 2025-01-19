@@ -160,7 +160,7 @@ def find_file(start_dir, target_file):
 
 # Define the starting directory and the target file
 start_directory = "/mount/source/arabic"
-target_filename = "AlKhalil2AnalyzerWrapper.java"
+target_filename = "net/oujda_nlp_team/AlKhalil2AnalyzerWrapper.java"
 
 # Find the file
 file_path = find_file(start_directory, target_filename)
