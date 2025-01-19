@@ -54,6 +54,17 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+import os
+
+# Set the JAVA_HOME environment variable
+os.environ['JAVA_HOME'] = '/usr/lib/jvm/java-11-openjdk-amd64'
+
+# Optionally, add JAVA_HOME/bin to the PATH
+os.environ['PATH'] = os.environ['PATH'] + os.pathsep + os.path.join(os.environ['JAVA_HOME'], 'bin')
+
+# Verify the setting
+print("JAVA_HOME is set to:", os.environ['JAVA_HOME'])
+print("PATH is set to:", os.environ['PATH'])
 
 # Get the current directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
