@@ -91,7 +91,7 @@ def compile_java():
         st.write(f"Current working directory for compiling: {current_working_directory}")
 
         # Define the classpath
-        classpath = "/mount/source/arabic/json/json-20210307.jar:/mount/source/arabic/net/oujda_nlp_team"
+        classpath = "/mount/source/arabic/json/json-20210307.jar"+ os.pathsep + "/mount/source/arabic/net/oujda_nlp_team"
 
         # Define the Java file to compile
         java_file = "/mount/source/arabic/net/oujda_nlp_team/AlKhalil2AnalyzerWrapper.java"
@@ -291,7 +291,7 @@ def main():
                 st.write(f"Current working directory: {current_working_directory}")
 
                 # Define the classpath
-                classpath = "/mount/source/arabic/json/json-20210307.jar:/mount/source/arabic/net/oujda_nlp_team:/mount/source/arabic/"
+                classpath = "/mount/source/arabic/json/json-20210307.jar"+ os.pathsep + "/mount/source/arabic/net/oujda_nlp_team"+ os.pathsep + "/mount/source/arabic/"
 
                 # Define the Java class and argument
                 java_class_name = "net.oujda_nlp_team.AlKhalil2AnalyzerWrapper"
