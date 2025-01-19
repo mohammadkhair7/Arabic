@@ -54,6 +54,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+JAVA_HOME=st.secrets["env"]["JAVA_HOME"]
+
 def analyze_sentence(sentence, java_object):
     try:
         # Convert the word to a String array
