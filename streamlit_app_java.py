@@ -57,17 +57,18 @@ st.markdown(
 
 # Get the current directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
+java_dir = current_dir + "/java"
 
 # Construct the path to libjvm.so
-jvm_path = os.path.join(current_dir, "libjvm.so")
-java_path = os.path.join(current_dir, "libjava.so")
+jvm_path = os.path.join(java_dir, "libjvm.so")
+# java_path = os.path.join(java_dir, "libjava.so")
 
 # # Load API URL from Streamlit secrets
-# def get_env_java():
-#     return st.secrets["env"]["java_env"]
+def get_env_java():
+    return st.secrets["env"]["JAVA_HOME"]
 
-# # Use the function to get the API URL
-# JAVA_HOME = get_env_java()
+# Use the function to get the API URL
+JAVA_HOME = get_env_java()
 
 def analyze_sentence(sentence, java_object):
     try:
@@ -202,7 +203,7 @@ def main():
                         # Start the JVM with the specified path
                         # jpype.getDefaultJVMPath(),
                         jpype.startJVM(
-                            [jvm_path, java_path],
+                            jvm_path,
                             classpath=[
                                 'E:\\Quran Computing Institute\\Al-Khalil\\Tools\\AlkhalilMorphSys2\\src_java',
                                 'E:\\Quran Computing Institute\\Al-Khalil\\Tools\\AlkhalilMorphSys2\\src_java\\net\\oujda_nlp_team\\json\\json-20210307.jar'
