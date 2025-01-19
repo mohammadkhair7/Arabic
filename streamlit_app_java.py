@@ -91,10 +91,10 @@ def compile_java():
         st.write(f"Current working directory for compiling: {current_working_directory}")
 
         # Define the classpath
-        classpath = "/mount/source/Arabic/json/json-20210307.jar:/mount/source/Arabic/net/oujda_nlp_team"
+        classpath = "/mount/source/arabic/json/json-20210307.jar:/mount/source/arabic/net/oujda_nlp_team"
 
         # Define the Java file to compile
-        java_file = "/mount/source/Arabic/net/oujda_nlp_team/AlKhalil2AnalyzerWrapper.java"
+        java_file = "/mount/source/arabic/net/oujda_nlp_team/AlKhalil2AnalyzerWrapper.java"
 
         # Run the javac command
         result = subprocess.run(
@@ -150,7 +150,27 @@ def analyze_sentence(sentence, java_object):
 
 def clean_word(word):
         return word.replace('ٰ', '').replace('ٓ', '').replace('ـٔ', 'ء').replace('ئ', 'ءي')
-        
+
+
+def find_file(start_dir, target_file):
+    for root, dirs, files in os.walk(start_dir):
+        if target_file in files:
+            return os.path.join(root, target_file)
+    return None
+
+# Define the starting directory and the target file
+start_directory = "/mount/source/arabic/net/oujda_nlp_team"
+target_filename = "AlKhalil2AnalyzerWrapper.java"
+
+# Find the file
+file_path = find_file(start_directory, target_filename)
+
+if file_path:
+    st.write(f"File found: {file_path}")
+else:
+    st.write(f"File '{target_filename}' not found in '{start_directory}'")
+
+
 def main():
 
 
@@ -249,9 +269,9 @@ def main():
                         jpype.startJVM(
                             jvm_path,
                             classpath=[
-                                '/mount/source/Arabic/',
-                                '/mount/source/Arabic/net/oujda_nlp_team',
-                                '/mount/source/Arabic/json/json-20210307.jar'
+                                '/mount/source/arabic/',
+                                '/mount/source/arabic/net/oujda_nlp_team',
+                                '/mount/source/arabic/json/json-20210307.jar'
                             ]
                         )
                         # st.write("Debug: JVM started successfully")
@@ -271,7 +291,7 @@ def main():
                 st.write(f"Current working directory: {current_working_directory}")
 
                 # Define the classpath
-                classpath = "/mount/source/Arabic/json/json-20210307.jar:/mount/source/Arabic/net/oujda_nlp_team:/mount/source/arabic/"
+                classpath = "/mount/source/arabic/json/json-20210307.jar:/mount/source/arabic/net/oujda_nlp_team:/mount/source/arabic/"
 
                 # Define the Java class and argument
                 java_class_name = "net.oujda_nlp_team.AlKhalil2AnalyzerWrapper"
