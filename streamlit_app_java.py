@@ -67,20 +67,20 @@ print("JAVA_HOME is set to:", os.environ['JAVA_HOME'])
 print("PATH is set to:", os.environ['PATH'])
 
 # Get the current directory
-current_dir = os.path.dirname(os.path.abspath(__file__))
-java_dir = current_dir + "/java/server"
+# current_dir = os.path.dirname(os.path.abspath(__file__))
+# java_dir = current_dir + "/java/server"
 
-# Construct the path to libjvm.so
-jvm_path = os.path.join(java_dir, "libjvm.so")
+# # Construct the path to libjvm.so
+# jvm_path = os.path.join(java_dir, "libjvm.so")
 
 
 # # Load API URL from Streamlit secrets
-def get_env_java():
-    return st.secrets["env"]["JAVA_HOME"]
+# def get_env_java():
+#     return st.secrets["env"]["JAVA_HOME"]
 
 # Use the function to get the API URL
 ## home for all libraries including libjava.so and libverify.so
-JAVA_HOME = get_env_java()
+# JAVA_HOME = get_env_java()
 
 def analyze_sentence(sentence, java_object):
     try:
