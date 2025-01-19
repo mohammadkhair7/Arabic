@@ -1,2 +1,3 @@
-openjdk-11-jdk
 wget
+openjdk-11-jdk
+default-jre-headless.
