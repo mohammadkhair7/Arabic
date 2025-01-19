@@ -54,12 +54,19 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Load API URL from Streamlit secrets
-def get_env_java():
-    return st.secrets["env"]["java_env"]
 
-# Use the function to get the API URL
-JAVA_HOME = get_env_java()
+# Get the current directory
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the path to libjvm.so
+jvm_path = os.path.join(current_dir, "libjvm.so")
+
+# # Load API URL from Streamlit secrets
+# def get_env_java():
+#     return st.secrets["env"]["java_env"]
+
+# # Use the function to get the API URL
+# JAVA_HOME = get_env_java()
 
 def analyze_sentence(sentence, java_object):
     try:
@@ -191,8 +198,10 @@ def main():
                 if not jpype.isJVMStarted():
                     # st.write("Debug: Starting JVM")
                     try:
+                        # Start the JVM with the specified path
+                        # jpype.getDefaultJVMPath(),
                         jpype.startJVM(
-                            jpype.getDefaultJVMPath(),
+                            jvm_path,
                             classpath=[
                                 'E:\\Quran Computing Institute\\Al-Khalil\\Tools\\AlkhalilMorphSys2\\src_java',
                                 'E:\\Quran Computing Institute\\Al-Khalil\\Tools\\AlkhalilMorphSys2\\src_java\\net\\oujda_nlp_team\\json\\json-20210307.jar'
