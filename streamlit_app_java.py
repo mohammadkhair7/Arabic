@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import jpype.config
 import streamlit as st
 import requests
