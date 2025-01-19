@@ -54,14 +54,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
-# Load API URL from Streamlit secrets
-def get_api_url():
-    return st.secrets["api"]["url"]
-
-# Use the function to get the API URL
-API_URL = get_api_url()
-
 def analyze_sentence(sentence, java_object):
     try:
         # Convert the word to a String array
