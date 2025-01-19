@@ -257,7 +257,7 @@ def main():
                 st.write("Debug: Accessing Java class")
 
                 # Define the classpath
-                classpath = "/mount/source/arabic/json/json-20210307.jar;/mount/source/arabic/net/oujda_nlp_team;/mount/source/arabic/"
+                classpath = "/mount/source/arabic/json/json-20210307.jar:/mount/source/arabic/net/oujda_nlp_team:/mount/source/arabic/"
 
                 # Define the Java class and argument
                 java_class = "net.oujda_nlp_team.AlKhalil2AnalyzerWrapper"
