@@ -260,21 +260,21 @@ def main():
                 classpath = "/mount/source/arabic/json/json-20210307.jar:/mount/source/arabic/net/oujda_nlp_team:/mount/source/arabic/"
 
                 # Define the Java class and argument
-                java_class = "AlKhalil2AnalyzerWrapper"
-                # argument = "ِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيم"
-                # # Run the Java command
-                # java_result = subprocess.run(
-                #     ['java', '-cp', classpath, java_class, argument],
-                #     check=True,
-                #     stdout=subprocess.PIPE,
-                #     stderr=subprocess.PIPE,
-                #     text=True
-                # )
-                # st.write(java_result)
+                java_class_name = "net.oujda_nlp_team.AlKhalil2AnalyzerWrapper"
+                argument = "ِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيم"
+                # Run the Java command
+                java_result = subprocess.run(
+                    ['java', '-cp', classpath, java_class_name, argument],
+                    check=True,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    text=True
+                )
+                st.write(java_result)
 
 
                 try:
-                    java_class = jpype.JClass("AlKhalil2AnalyzerWrapper")
+                    java_class = jpype.JClass(java_class_name)
                     java_object = java_class()
                     # st.write("Debug: Java class accessed successfully")
                 except Exception as e:
