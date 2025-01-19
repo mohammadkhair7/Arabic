@@ -56,7 +56,7 @@ st.markdown(
 
 # Load API URL from Streamlit secrets
 def get_env_java():
-    return st.secrets["env"]["JAVA_HOME"]
+    return st.secrets["env"]["java_env"]
 
 # Use the function to get the API URL
 JAVA_HOME = get_env_java()
