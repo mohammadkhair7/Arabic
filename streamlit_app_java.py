@@ -242,6 +242,7 @@ def main():
                         jpype.startJVM(
                             jvm_path,
                             classpath=[
+                                '/mount/source/arabic/',
                                 '/mount/source/arabic/net/oujda_nlp_team',
                                 '/mount/source/arabic/json/json-20210307.jar'
                             ]
