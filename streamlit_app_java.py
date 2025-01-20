@@ -157,6 +157,9 @@ def search_file(directory=None, file=None):
         raise ValueError(f"The provided directory '{directory}' is not valid.")
     
     for current_path, directories, files in os.walk(directory):
+        st.write("path=", current_path)
+        st.write("directories=", directories)
+        st.write("files=", files)
         if file in files:
             return os.path.join(current_path, file)
         for new_directory in directories:
