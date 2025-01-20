@@ -358,7 +358,7 @@ def main():
 
     # Shutdown the JVM when done (only in main thread)
     # jpype.shutdownJVM()
-
+    #
     # Debugging output to check the contents of results
     # st.write("Debug: Results before displaying:", st.session_state.results)
 
