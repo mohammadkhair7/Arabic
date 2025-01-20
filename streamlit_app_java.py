@@ -5,6 +5,7 @@ import pandas as pd
 from pyarabic.araby import tokenize
 import jpype
 import os
+import os.path
 import json
 import subprocess
 
