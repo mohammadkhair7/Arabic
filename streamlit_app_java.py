@@ -153,8 +153,12 @@ def clean_word(word):
 
 
 def find_file(start_dir, target_file):
-    os.listdir(start_dir)
     for root, dirs, files in os.walk(start_dir):
+        st.write("==========")
+        st.write(dirs)
+        st.write("==========")
+        st.write(files)
+        st.write("==========")
         if target_file in files:
             return os.path.join(root, target_file)
     return None
