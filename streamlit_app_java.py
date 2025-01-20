@@ -215,7 +215,7 @@ def main():
     )
 
     # Page title
-    st.title("الخليل : محلل الصرف للغة العربية\n Al-Khalil Arabic Morphological Analyzer")
+    st.title("الخليل : المحلل الصرفي للغة العربية\n Al-Khalil Arabic Morphological Analyzer")
     # Add reference URL
     st.markdown("[@http://alkhalil.oujda-nlp-team.net/](http://alkhalil.oujda-nlp-team.net/)")
     st.markdown("[@https://qurancomputing.org](https://qurancomputing.org)")
