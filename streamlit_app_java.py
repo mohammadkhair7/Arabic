@@ -219,7 +219,7 @@ def main():
     # Add reference URL
     st.markdown("[@http://alkhalil.oujda-nlp-team.net/](http://alkhalil.oujda-nlp-team.net/)")
     st.markdown("[@https://qurancomputing.org](https://qurancomputing.org)")
-    st.markdown("[@للتبرع مرة واحدة $10](https://buy.stripe.com/14k6r0eaAbSn0q4bIP)")
+    st.markdown("[Donate $للتبرع مرة واحدة 10](https://buy.stripe.com/14k6r0eaAbSn0q4bIP)")
     
     # CSS for dark mode and table styling
     st.markdown("""
