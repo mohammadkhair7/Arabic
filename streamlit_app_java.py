@@ -326,14 +326,16 @@ def main():
                 #     text=True
                 # )
                 # st.write(java_result)
-                # try:
-                #     java_class = jpype.JClass(java_class_name)
-                #     java_object = java_class()
-                #     # st.write("Debug: Java class accessed successfully")
-                # except Exception as e:
-                #     st.error(f"Error accessing Java class: {str(e)}")
-                #     st.write(f"Debug: Java class access error details: {str(e)}")
-                #     return
+
+                
+                try:
+                    java_class = jpype.JClass(java_class_name)
+                    java_object = java_class()
+                    # st.write("Debug: Java class accessed successfully")
+                except Exception as e:
+                    st.error(f"Error accessing Java class: {str(e)}")
+                    st.write(f"Debug: Java class access error details: {str(e)}")
+                    return
 
                 for sentence in sentences:
                     sentence = sentence.strip()
