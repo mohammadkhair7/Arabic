@@ -92,10 +92,10 @@ def compile_java():
         st.write(f"Current working directory for compiling: {current_working_directory}")
 
         # Define the classpath
-        classpath = "/mount/source/arabic/json/json-20210307.jar"+ os.pathsep + "/mount/source/arabic/net/oujda_nlp_team"
+        classpath = "/mount/src/arabic/json/json-20210307.jar"+ os.pathsep + "/mount/src/arabic/net/oujda_nlp_team"
 
         # Define the Java file to compile
-        java_file = "/mount/source/arabic/net/oujda_nlp_team/AlKhalil2AnalyzerWrapper.java"
+        java_file = "/mount/src/arabic/net/oujda_nlp_team/AlKhalil2AnalyzerWrapper.java"
 
         # Run the javac command
         result = subprocess.run(
@@ -182,7 +182,7 @@ def search_file(directory=None, file=None):
     return None
 
 # Example usage
-start_directory = "/mount/src"  # Ensure this is a valid directory
+start_directory = "/mount/src/arabic"  # Ensure this is a valid directory
 target_filename = "AlKhalil2AnalyzerWrapper.java"
 
 file_path = search_file(directory=start_directory, file=target_filename)
@@ -295,9 +295,9 @@ def main():
                         jpype.startJVM(
                             jvm_path,
                             classpath=[
-                                '/mount/source/arabic/',
-                                '/mount/source/arabic/net/oujda_nlp_team',
-                                '/mount/source/arabic/json/json-20210307.jar'
+                                '/mount/src/arabic/',
+                                '/mount/src/arabic/net/oujda_nlp_team',
+                                '/mount/src/arabic/json/json-20210307.jar'
                             ]
                         )
                         # st.write("Debug: JVM started successfully")
@@ -317,7 +317,7 @@ def main():
                 st.write(f"Current working directory: {current_working_directory}")
 
                 # Define the classpath
-                classpath = "/mount/source/arabic/json/json-20210307.jar"+ os.pathsep + "/mount/source/arabic/net/oujda_nlp_team"+ os.pathsep + "/mount/source/arabic/"
+                classpath = "/mount/src/arabic/json/json-20210307.jar"+ os.pathsep + "/mount/src/arabic/net/oujda_nlp_team"+ os.pathsep + "/mount/src/arabic/"
 
                 # Define the Java class and argument
                 java_class_name = "net.oujda_nlp_team.AlKhalil2AnalyzerWrapper"
