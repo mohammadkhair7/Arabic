@@ -155,42 +155,37 @@ def clean_word(word):
 import os
 import streamlit as st
 
-def search_file(directory=None, file=None):
-    # Check if the directory is valid
-    if not os.path.isdir(directory):
-        st.error(f"The provided directory '{directory}' is not valid.")
-        return None
+# def search_file(directory=None, file=None):
+#     # Check if the directory is valid
+#     if not os.path.isdir(directory):
+#         st.error(f"The provided directory '{directory}' is not valid.")
+#         return None
     
-    # Walk through the directory
-    for current_path, directories, files in os.walk(directory):
-        st.write("Current path:", current_path)
-        st.write("Directories:", directories)
-        st.write("Files:", files)
+#     # Walk through the directory
+#     for current_path, directories, files in os.walk(directory):
+#         st.write("Current path:", current_path)
+#         st.write("Directories:", directories)
+#         st.write("Files:", files)
         
-        # Check if the target file is in the current directory
-        if file in files:
-            st.success(f"File found: {os.path.join(current_path, file)}")
-            return os.path.join(current_path, file)
+#         # Check if the target file is in the current directory
+#         if file in files:
+#             st.success(f"File found: {os.path.join(current_path, file)}")
+#             return os.path.join(current_path, file)
         
-        # Recursively search in subdirectories
-        for new_directory in directories:
-            result = search_file(directory=os.path.join(current_path, new_directory), file=file)
-            if result:
-                return result
+#         # Recursively search in subdirectories
+#         for new_directory in directories:
+#             result = search_file(directory=os.path.join(current_path, new_directory), file=file)
+#             if result:
+#                 return result
     
-    st.warning(f"File '{file}' not found in '{directory}'")
-    return None
+#     st.warning(f"File '{file}' not found in '{directory}'")
+#     return None
 
-# Example usage
-start_directory = "/mount/src/arabic"  # Ensure this is a valid directory
-target_filename = "AlKhalil2AnalyzerWrapper.java"
+# # Example usage
+# start_directory = "/mount/src/arabic"  # Ensure this is a valid directory
+# target_filename = "AlKhalil2AnalyzerWrapper.java"
 
-file_path = search_file(directory=start_directory, file=target_filename)
-if file_path:
-    st.write(f"File found: {file_path}")
-else:
-    st.write(f"File '{target_filename}' not found in '{start_directory}'")
-
+# file_path = search_file(directory=start_directory, file=target_filename)
 # if file_path:
 #     st.write(f"File found: {file_path}")
 # else:
@@ -317,7 +312,7 @@ def main():
                 st.write(f"Current working directory: {current_working_directory}")
 
                 # Define the classpath
-                classpath = "/mount/src/arabic/json/json-20210307.jar"+ os.pathsep + "/mount/src/arabic/net/oujda_nlp_team"+ os.pathsep + "/mount/src/arabic/"
+                classpath = "/mount/src/arabic/json/json-20210307.jar"+ os.pathsep + "/mount/src/arabic/"
 
                 # Define the Java class and argument
                 java_class_name = "net.oujda_nlp_team.AlKhalil2AnalyzerWrapper"
