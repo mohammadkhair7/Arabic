@@ -196,10 +196,10 @@ try:
 except ValueError as e:
     print(e)
 
-if file_path:
-    st.write(f"File found: {file_path}")
-else:
-    st.write(f"File '{target_filename}' not found in '{start_directory}'")
+# if file_path:
+#     st.write(f"File found: {file_path}")
+# else:
+#     st.write(f"File '{target_filename}' not found in '{start_directory}'")
 
 
 def main():
