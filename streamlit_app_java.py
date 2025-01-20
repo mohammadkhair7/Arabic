@@ -59,8 +59,13 @@ st.markdown(
 os.environ['JAVA_HOME'] = '/usr/lib/jvm/java-11-openjdk-amd64'
 JAVA_HOME = '/usr/lib/jvm/java-11-openjdk-amd64'
 
-# Optionally, add JAVA_HOME/bin to the PATH
-os.environ['PATH'] = os.environ['PATH'] + os.pathsep + os.path.join(os.environ['JAVA_HOME'], 'bin')
+# Get the JAVA_HOME path
+java_bin_path = os.path.join(os.environ['JAVA_HOME'], 'bin')
+
+# Check if the JAVA_HOME/bin is already in the PATH
+if java_bin_path not in os.environ['PATH']:
+    # Append JAVA_HOME/bin to the PATH if it's not already there
+    os.environ['PATH'] = os.environ['PATH'] + os.pathsep + java_bin_path
 
 # Verify the setting
 # st.write("JAVA_HOME is set to:", os.environ['JAVA_HOME'])
@@ -327,7 +332,7 @@ def main():
                 # )
                 # st.write(java_result)
 
-                
+
                 try:
                     java_class = jpype.JClass(java_class_name)
                     java_object = java_class()
