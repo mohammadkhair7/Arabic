@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package net.oujda_nlp_team;
 
 import net.oujda_nlp_team.entity.ResultList;
@@ -170,5 +169,4 @@ public class AlKhalil2AnalyzerWrapper {
         defaultEntry.put("Root", "-");
         return defaultEntry;
     }
->>>>>>> 11acb38 (Add untracked files)
 }  
