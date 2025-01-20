@@ -184,7 +184,7 @@ def search_file(directory=None, file=None):
 #     return None
 
 # Define the starting directory and the target file
-start_directory = "/mount/source/arabic"
+start_directory = "~/"
 target_filename = "AlKhalil2AnalyzerWrapper.java"
 
 try:
