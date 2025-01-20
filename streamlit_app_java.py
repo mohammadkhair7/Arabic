@@ -182,7 +182,7 @@ def search_file(directory=None, file=None):
     return None
 
 # Example usage
-start_directory = "~/"  # Ensure this is a valid directory
+start_directory = "/mount/source"  # Ensure this is a valid directory
 target_filename = "AlKhalil2AnalyzerWrapper.java"
 
 file_path = search_file(directory=start_directory, file=target_filename)
