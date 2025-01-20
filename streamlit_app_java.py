@@ -152,41 +152,46 @@ def analyze_sentence(sentence, java_object):
 def clean_word(word):
         return word.replace('ٰ', '').replace('ٓ', '').replace('ـٔ', 'ء').replace('ئ', 'ءي')
 
-def search_file(directory = None, file = None):
-    assert os.path.isdir(directory)
-    current_path, directories, files = os.walk(directory).next()
-    if file in files:
-        return os.path.join(directory, file)
-    elif directories == '':
-        return None
-    else:
+def search_file(directory=None, file=None):
+    if not os.path.isdir(directory):
+        raise ValueError(f"The provided directory '{directory}' is not valid.")
+    
+    for current_path, directories, files in os.walk(directory):
+        if file in files:
+            return os.path.join(current_path, file)
         for new_directory in directories:
-            result = search_file(directory = os.path.join(directory, new_directory), file = file)
+            result = search_file(directory=os.path.join(current_path, new_directory), file=file)
             if result:
                 return result
-        return None
-
-def find_file(start_dir, target_file):
-    st.write(os.walk(start_dir))
-    st.write("##################")
-    for root, dirs, files in os.walk(start_dir):
-        st.write("==========")
-        st.write(root)
-        st.write("==========")
-        st.write(dirs)
-        st.write("==========")
-        st.write(files)
-        st.write("==========")
-        if target_file in files:
-            return os.path.join(root, target_file)
     return None
+
+# def find_file(start_dir, target_file):
+#     st.write(os.walk(start_dir))
+#     st.write("##################")
+#     for root, dirs, files in os.walk(start_dir):
+#         st.write("==========")
+#         st.write(root)
+#         st.write("==========")
+#         st.write(dirs)
+#         st.write("==========")
+#         st.write(files)
+#         st.write("==========")
+#         if target_file in files:
+#             return os.path.join(root, target_file)
+#     return None
 
 # Define the starting directory and the target file
 start_directory = "/mount/source/arabic"
 target_filename = "AlKhalil2AnalyzerWrapper.java"
 
-# Find the file
-file_path = search_file(directory=start_directory, file=target_filename)
+try:
+    file_path = search_file(directory=start_directory, file=target_filename)
+    if file_path:
+        print(f"File found: {file_path}")
+    else:
+        print(f"File '{target_filename}' not found in '{start_directory}'")
+except ValueError as e:
+    print(e)
 
 if file_path:
     st.write(f"File found: {file_path}")
