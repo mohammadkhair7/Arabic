@@ -63,8 +63,8 @@ JAVA_HOME = '/usr/lib/jvm/java-11-openjdk-amd64'
 os.environ['PATH'] = os.environ['PATH'] + os.pathsep + os.path.join(os.environ['JAVA_HOME'], 'bin')
 
 # Verify the setting
-st.write("JAVA_HOME is set to:", os.environ['JAVA_HOME'])
-st.write("PATH is set to:", os.environ['PATH'])
+# st.write("JAVA_HOME is set to:", os.environ['JAVA_HOME'])
+# st.write("PATH is set to:", os.environ['PATH'])
 
 # Get the current directory
 # current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -82,37 +82,37 @@ jvm_path = os.path.join(java_dir, "libjvm.so")
 ## home for all libraries including libjava.so and libverify.so
 # JAVA_HOME = get_env_java()
 
-def compile_java():
-    try:
+# def compile_java():
+#     try:
 
-        # Get the current working directory
-        current_working_directory = os.getcwd()
+#         # Get the current working directory
+#         current_working_directory = os.getcwd()
 
-        # Print the current working directory
-        st.write(f"Current working directory for compiling: {current_working_directory}")
+#         # Print the current working directory
+#         st.write(f"Current working directory for compiling: {current_working_directory}")
 
-        # Define the classpath
-        classpath = "/mount/src/arabic/json/json-20210307.jar"+ os.pathsep + "/mount/src/arabic/net/oujda_nlp_team"
+#         # Define the classpath
+#         classpath = "/mount/src/arabic/json/json-20210307.jar"+ os.pathsep + "/mount/src/arabic/net/oujda_nlp_team"
 
-        # Define the Java file to compile
-        java_file = "/mount/src/arabic/net/oujda_nlp_team/AlKhalil2AnalyzerWrapper.java"
+#         # Define the Java file to compile
+#         java_file = "/mount/src/arabic/net/oujda_nlp_team/AlKhalil2AnalyzerWrapper.java"
 
-        # Run the javac command
-        result = subprocess.run(
-            ['javac', '-cp', classpath, java_file],
-            check=True,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE
-        )
+#         # Run the javac command
+#         result = subprocess.run(
+#             ['javac', '-cp', classpath, java_file],
+#             check=True,
+#             stdout=subprocess.PIPE,
+#             stderr=subprocess.PIPE
+#         )
 
-        st.write("Java compilation successful.")
-        st.write(result.stdout.decode())
-    except subprocess.CalledProcessError as e:
-        st.write("Java compilation failed.")
-        st.write(e.stderr.decode())
+#         st.write("Java compilation successful.")
+#         st.write(result.stdout.decode())
+#     except subprocess.CalledProcessError as e:
+#         st.write("Java compilation failed.")
+#         st.write(e.stderr.decode())
 
-# Call the function
-compile_java()
+# # Call the function
+# compile_java()
 
 
 def analyze_sentence(sentence, java_object):
@@ -141,7 +141,7 @@ def analyze_sentence(sentence, java_object):
                 st.write(f"Debug: Failed JSON string: {analysis_result}")
                 return None
         else:
-            st.write(f"Debug: No analysis result for word '{sentence}'")
+            # st.write(f"Debug: No analysis result for word '{sentence}'")
             return None
             
     except Exception as e:
@@ -302,40 +302,38 @@ def main():
                         return
 
                 # Access Java classes
-                st.write("Debug: Accessing Java class")
+                # st.write("Debug: Accessing Java class")
 
 
                 # Get the current working directory
                 current_working_directory = os.getcwd()
 
                 # Print the current working directory
-                st.write(f"Current working directory: {current_working_directory}")
+                # st.write(f"Current working directory: {current_working_directory}")
 
                 # Define the classpath
                 classpath = "/mount/src/arabic/json/json-20210307.jar"+ os.pathsep + "/mount/src/arabic/"
 
                 # Define the Java class and argument
                 java_class_name = "net.oujda_nlp_team.AlKhalil2AnalyzerWrapper"
-                argument = "ِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيم"
-                # Run the Java command
-                java_result = subprocess.run(
-                    ['java', '-cp', classpath, java_class_name, argument],
-                    check=True,
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE,
-                    text=True
-                )
-                st.write(java_result)
-
-
-                try:
-                    java_class = jpype.JClass(java_class_name)
-                    java_object = java_class()
-                    # st.write("Debug: Java class accessed successfully")
-                except Exception as e:
-                    st.error(f"Error accessing Java class: {str(e)}")
-                    st.write(f"Debug: Java class access error details: {str(e)}")
-                    return
+                # argument = "ِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيم"
+                # # Run the Java command
+                # java_result = subprocess.run(
+                #     ['java', '-cp', classpath, java_class_name, argument],
+                #     check=True,
+                #     stdout=subprocess.PIPE,
+                #     stderr=subprocess.PIPE,
+                #     text=True
+                # )
+                # st.write(java_result)
+                # try:
+                #     java_class = jpype.JClass(java_class_name)
+                #     java_object = java_class()
+                #     # st.write("Debug: Java class accessed successfully")
+                # except Exception as e:
+                #     st.error(f"Error accessing Java class: {str(e)}")
+                #     st.write(f"Debug: Java class access error details: {str(e)}")
+                #     return
 
                 for sentence in sentences:
                     sentence = sentence.strip()
@@ -350,8 +348,8 @@ def main():
                                 results.extend(analysis_result)
                             else:
                                 results.append(analysis_result)
-                        else:
-                            st.write(f"Debug: No analysis result for word '{word}'")
+                        # else:
+                        #     st.write(f"Debug: No analysis result for word '{word}'")
 
                 st.session_state.results = results  # Store results in session state
                 # st.write("Debug: Final results:", results)
