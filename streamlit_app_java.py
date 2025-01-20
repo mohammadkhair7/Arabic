@@ -152,49 +152,44 @@ def analyze_sentence(sentence, java_object):
 def clean_word(word):
         return word.replace('ٰ', '').replace('ٓ', '').replace('ـٔ', 'ء').replace('ئ', 'ءي')
 
+import os
+import streamlit as st
+
 def search_file(directory=None, file=None):
+    # Check if the directory is valid
     if not os.path.isdir(directory):
-        raise ValueError(f"The provided directory '{directory}' is not valid.")
+        st.error(f"The provided directory '{directory}' is not valid.")
+        return None
     
+    # Walk through the directory
     for current_path, directories, files in os.walk(directory):
-        st.write("path=", current_path)
-        st.write("directories=", directories)
-        st.write("files=", files)
+        st.write("Current path:", current_path)
+        st.write("Directories:", directories)
+        st.write("Files:", files)
+        
+        # Check if the target file is in the current directory
         if file in files:
+            st.success(f"File found: {os.path.join(current_path, file)}")
             return os.path.join(current_path, file)
+        
+        # Recursively search in subdirectories
         for new_directory in directories:
             result = search_file(directory=os.path.join(current_path, new_directory), file=file)
             if result:
                 return result
+    
+    st.warning(f"File '{file}' not found in '{directory}'")
     return None
 
-# def find_file(start_dir, target_file):
-#     st.write(os.walk(start_dir))
-#     st.write("##################")
-#     for root, dirs, files in os.walk(start_dir):
-#         st.write("==========")
-#         st.write(root)
-#         st.write("==========")
-#         st.write(dirs)
-#         st.write("==========")
-#         st.write(files)
-#         st.write("==========")
-#         if target_file in files:
-#             return os.path.join(root, target_file)
-#     return None
-
-# Define the starting directory and the target file
-start_directory = "~/"
+# Example usage
+start_directory = "/mount/source/arabic"  # Ensure this is a valid directory
 target_filename = "AlKhalil2AnalyzerWrapper.java"
 
-try:
-    file_path = search_file(directory=start_directory, file=target_filename)
-    if file_path:
-        print(f"File found: {file_path}")
-    else:
-        print(f"File '{target_filename}' not found in '{start_directory}'")
-except ValueError as e:
-    print(e)
+file_path = search_file(directory=start_directory, file=target_filename)
+if file_path:
+    st.write(f"File found: {file_path}")
+else:
+    st.write(f"File '{target_filename}' not found in '{start_directory}'")
 
 # if file_path:
 #     st.write(f"File found: {file_path}")
