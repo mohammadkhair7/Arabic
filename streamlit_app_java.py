@@ -13,7 +13,6 @@ import subprocess
 st.set_page_config(
     page_title="Al-Khalil Arabic Morphological Analyzer",
     page_icon="qurancomputing.ico",
-    layout="wide"
 )
 
 st.markdown(
